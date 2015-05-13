@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+
+
+% Useful Packages
+
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{sudoku}
+\usepackage{graphicx}
+
+\usepgflibrary{arrows}
+
+
+
+% Statement styles
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem*{example}{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{remarks}{Remarks}
+
+\numberwithin{equation}{section}
+
+
+% Page dimensions
+
+\setlength{\evensidemargin}{1in}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\oddsidemargin}{1in}
+\addtolength{\oddsidemargin}{-1in}
+\setlength{\topmargin}{1in}
+\addtolength{\topmargin}{-1.5in}
+
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{23cm}
+
+
+%Special Letters
+
+\newcommand{\CC}{\mathbb{C}} 
+\newcommand{\FF}{\mathbb{F}}  
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\QQ}{\mathbb{Q}}  
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}} 
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}} 
+\newcommand{\cE}{\mathcal{E}} 
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}  
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cJ}{\mathcal{J}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\cW}{\mathcal{W}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cZ}{\mathcal{Z}}
+
+\newcommand{\fkg}{\mathfrak{g}}
+\newcommand{\fkh}{\mathfrak{h}}
+\newcommand{\fkn}{\mathfrak{n}}
+\newcommand{\fksl}{\mathfrak{sl}}
+\newcommand{\fku}{\mathfrak{u}}
+\newcommand{\fkS}{\mathfrak{S}}
+\newcommand{\fkX}{\mathfrak{X}}
+
+\newcommand{\bg}{\mathbf{g}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\bm}{\mathbf{m}}
+\newcommand{\bM}{\mathbf{M}}
+\newcommand{\bN}{\mathbf{N}}
+\newcommand{\bp}{\mathbf{p}}
+
+
+
+
+\allowdisplaybreaks[1]
+
+\begin{document}
+
+\title{Problem Set 2}
+\author{Max Harris}
+
+\maketitle
+
+Collaborators: Dennis (has a beard, sits next to me)
+\begin{enumerate}
+	\item (20 pts) Suppose list a has $n$ elements and is sorted.
+	
+	\begin{enumerate}
+		\item (10 pts) Using $\Theta$ notation, what is the best case running time as function of $n$?\\
+		
+		The best case running time is when we enter the \emph{while} loop and return on the first iteration. In order to return on the first iteration, the \emph{target} we are looking for has to be in the middle of the sorted list so that 
+		$$m = (x+y)/2 = \text{the position of the target element}$$ 
+		and thus 
+		$$a[m] = target.$$ 
+		After entering the \emph{while} loop for the first time, $m$ is assigned to the index of the middle element. If $a[m] = target$ it will return on the first iteration. This is our best case. Since the best case doesn't depend on $n$, it will run in constant time or in $\Theta$ notation as a function of n:
+		$$f(n) = \Theta(g(n)) = \Theta(n^0) = \Theta(1).$$
+		The notation $\Theta(n^0)$ is beneficial because it explicitly expresses which variable is tending toward infinity.\\
+		There are some operations that occur even in our best case scenario but the number of operations will always be constant. If we let $C_0$ be the number of constant operations performed than we can verify that there exists $n_0$ and constants $c_1 < C_0$ and  $c_2 > C_0$ such that $c_1g(n) \leq f(n) \leq c_2g(n)$ for all $n > n_0$. \\
+		
+		\item Using $\Theta$ notation, what is the worst case running time as function of n?\\
+		
+		Since this is a search algorithm, the worst case is when the list does not contain the $target$
+so we search the entire list. The \emph{while} loop dictates how many iterations $i$ are executed. 
+
+	\end{enumerate}	
+	
+\end{enumerate}
+
+
+
+
+
+
+
+
+\end{document}
